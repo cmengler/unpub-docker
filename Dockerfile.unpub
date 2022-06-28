@@ -8,6 +8,6 @@ ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.5.1/wait
 
 RUN chmod a+x /wait
 
-EXPOSE 4000
+EXPOSE $UNPUB_PORT
 
-CMD /wait && /unpub -d $DB_URL
+CMD /wait && /unpub -p $UNPUB_PORT -d $UNPUB_DB_URL -f $UNPUB_FILE_STORE_PATH
